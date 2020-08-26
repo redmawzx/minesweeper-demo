@@ -14,6 +14,8 @@ public class MineField {
             for (int col = 0; col < input[row].length(); col++) {
                 if (hasMine(row, col)) {
                     rowString += "*";
+                } else if (hasMine(row, col-1)){
+                    rowString += "1";
                 } else {
                     rowString += "0";
                 }
@@ -24,6 +26,9 @@ public class MineField {
     }
 
     private boolean hasMine(int row, int col) {
+        if (col < 0) {
+            return false;
+        }
         return input[row].charAt(col) == '*';
     }
 }
