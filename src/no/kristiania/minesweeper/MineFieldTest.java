@@ -34,15 +34,15 @@ public class MineFieldTest {
         );
     }
 
+    @Test
+    void itShowsHintRightOfMine() {
+        assertArrayEquals(
+                new String[] { "*10" },
+                displayMinefield(new String[] { "*.." })
+        );
+    }
+
     private String[] displayMinefield(String[] input) {
-        String[] result = new String[input.length];
-        for (int row = 0; row < input.length; row++) {
-            String rowString = "";
-            for (int col = 0; col < input[row].length(); col++) {
-                rowString += "0";
-            }
-            result[row] = rowString;
-        }
-        return result;
+        return new MineField(input).displayMinefield(input);
     }
 }
