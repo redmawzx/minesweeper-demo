@@ -11,16 +11,26 @@ public class MineFieldTest {
     }
 
     @Test
-    void isShowsCorrectNumberOfROws() {
+    void isShowsCorrectNumberOfRows() {
         assertArrayEquals(
                 new String[] { "000", "000", "000" },
                 displayMinefield(new String[] { "...", "...", "..." })
         );
     }
 
-    private String[] displayMinefield(String[] strings) {
-        return new String[] {
-                "000", "000"
+    @Test
+    void isShowsCorrectNumberOfColumns() {
+        assertArrayEquals(
+                new String[] { "0000" },
+                displayMinefield(new String[] { "...." })
+        );
+    }
+
+    private String[] displayMinefield(String[] input) {
+        String[] result = new String[input.length];
+        for (int i = 0; i < input.length; i++) {
+                result[i] = "000";
         };
+        return result;
     }
 }
