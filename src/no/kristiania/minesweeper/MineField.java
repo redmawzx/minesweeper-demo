@@ -16,17 +16,12 @@ public class MineField {
                     rowString += "*";
                 } else {
                     int hint = 0;
-                    if (hasMine(row, col-1)) {
-                        hint = 1;
-                    }
-                    if (hasMine(row, col+1)) {
-                        hint = 1;
-                    }
-                    if (hasMine(row, col-1)) {
-                        hint = 1;
-                    }
-                    if (hasMine(row, col+1)) {
-                        hint = 1;
+                    for (int r=row-1; r<=row+1; r++) {
+                        for (int c=col-1; c<=col+1; c++) {
+                            if (hasMine(r, c)) {
+                                hint = 1;
+                            }
+                        }
                     }
                     rowString += hint;
                 }
