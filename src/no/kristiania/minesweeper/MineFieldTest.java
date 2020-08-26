@@ -6,11 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class MineFieldTest {
     @Test
-    void itShowsEmptyMinefield() {
-        assertArrayEquals(new String[] { "000", "000" }, displayMinefield(new String[] { "...", "..."}));
-    }
-
-    @Test
     void isShowsCorrectNumberOfRows() {
         assertArrayEquals(
                 new String[] { "000", "000", "000" },
@@ -26,29 +21,6 @@ public class MineFieldTest {
         );
     }
 
-    @Test
-    void itShowsMines() {
-        assertArrayEquals(
-                new String[] { "***" },
-                displayMinefield(new String[] { "***" })
-        );
-    }
-
-    @Test
-    void itShowsHintOnRowOfMine() {
-        assertArrayEquals(
-                new String[] { "01*10" },
-                displayMinefield(new String[] { "..*.." })
-        );
-    }
-
-    @Test
-    void itShowsHintOnColOfMine() {
-        assertArrayEquals(
-                new String[] { "0", "1", "*", "1", "0" },
-                displayMinefield(new String[] { ".", ".", "*", ".", "." })
-        );
-    }
 
     @Test
     void itShowsHintAroundMine() {
