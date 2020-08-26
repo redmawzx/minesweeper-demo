@@ -50,6 +50,14 @@ public class MineFieldTest {
         );
     }
 
+    @Test
+    void itShowsHintAroundMine() {
+        assertArrayEquals(
+                new String[] { "111", "1*1", "111" },
+                displayMinefield(new String[] { "...", ".*.", "..."})
+        );
+    }
+
     private String[] displayMinefield(String[] input) {
         return new MineField(input).displayMinefield();
     }

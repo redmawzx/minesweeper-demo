@@ -14,17 +14,19 @@ public class MineField {
             for (int col = 0; col < input[row].length(); col++) {
                 if (hasMine(row, col)) {
                     rowString += "*";
-                } else if (hasMine(row, col-1)) {
-                    rowString += "1";
-                } else if(hasMine(row, col+1)) {
-                    rowString += "1";
                 } else {
-                    String hint = "0";
+                    int hint = 0;
                     if (hasMine(row, col-1)) {
-                        hint = "1";
+                        hint = 1;
                     }
                     if (hasMine(row, col+1)) {
-                        hint = "1";
+                        hint = 1;
+                    }
+                    if (hasMine(row, col-1)) {
+                        hint = 1;
+                    }
+                    if (hasMine(row, col+1)) {
+                        hint = 1;
                     }
                     rowString += hint;
                 }
@@ -35,6 +37,9 @@ public class MineField {
     }
 
     private boolean hasMine(int row, int col) {
+        if (row < 0 || input.length <= row) {
+            return false;
+        }
         if (col < 0 || input[row].length() <= col) {
             return false;
         }
