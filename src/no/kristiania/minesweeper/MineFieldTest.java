@@ -38,7 +38,15 @@ public class MineFieldTest {
     void itShowsHintOnRowOfMine() {
         assertArrayEquals(
                 new String[] { "01*10" },
-                displayMinefield(new String[] { "*.." })
+                displayMinefield(new String[] { "..*.." })
+        );
+    }
+
+    @Test
+    void itShowsHintOnColOfMine() {
+        assertArrayEquals(
+                new String[] { "0", "1", "*", "1", "0" },
+                displayMinefield(new String[] { ".", ".", "*", ".", "." })
         );
     }
 
